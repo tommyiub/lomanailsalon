@@ -1,0 +1,772 @@
+/* ------------------------------
+   Fonts
+------------------------------ */
+@font-face {
+  font-family: "Hailey";
+  src: url("./assets/fonts/hailey-webfont.woff2") format("woff2"),
+       url("./assets/fonts/hailey-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clover";
+  src: url("./assets/fonts/clover-webfont.woff2") format("woff2"),
+       url("./assets/fonts/clover-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: "Hailey";
+  src: url("./assets/fonts/Hailey-Regular.woff2") format("woff2"),
+       url("./assets/fonts/Hailey-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ------------------------------
+   Theme (your palette)
+------------------------------ */
+:root{
+  --paper: #e5ded6;
+  --tan: #c2ad8e;
+  --brown: #633723;
+  --olive: #5e5a3e;
+  --ink: #1e1d1d;
+  --warm: #9e7c52;
+
+  --bg: var(--paper);
+  --text: var(--ink);
+  --muted: rgba(30,29,29,.72);
+  --border: rgba(30,29,29,.14);
+
+  --radius: 18px;
+  --shadow: 0 18px 45px rgba(30,29,29,.12);
+}
+
+
+
+/* ------------------------------
+   Base
+------------------------------ */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+img{ max-width:100%; display:block; }
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+a:hover{ opacity:.9; }
+
+.container{
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* Skip link */
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.skip-link:focus{
+  left: 16px;
+  top: 16px;
+  width:auto;
+  height:auto;
+  padding: 10px 12px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  z-index: 9999;
+}
+
+/* ------------------------------
+   Header
+------------------------------ */
+.site-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+
+  background: rgba(229,222,214,.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+  padding: 14px 0;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  min-width: 220px;
+}
+
+.brand-mark{
+  width: 120px;     /* was 44px */
+  height: auto;    /* keep logo proportions */
+  display: block;
+}
+
+.brand-text{
+  font-family: "Hailey", system-ui, sans-serif;
+  font-size: 22px;
+  letter-spacing: .3px;
+  line-height: 1;
+}
+
+/* Nav */
+.nav{
+  display:flex;
+  gap: 18px;
+  align-items:center;
+}
+.nav a{
+  font-size: 14px;
+  letter-spacing: .25px;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+.nav a:hover{
+  background: rgba(255,255,255,.55);
+  color: var(--text);
+}
+
+/* ===== Header ===== */
+/* ------------------------------
+   Header (CLEAN SINGLE SOURCE)
+------------------------------ */
+
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0;
+}
+
+.header-line{
+  height: 1px;
+  background: rgba(30, 29, 29, .18);
+}
+
+/* Brand */
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-mark{
+  /* ✅ Bigger + responsive */
+  width: clamp(120px, 14vw, 190px);
+  height: auto;
+  display: block;
+}
+
+/* Nav */
+.nav{
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav a{
+  text-decoration: none;
+  color: #1e1d1d;
+  font-size: 13px;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  opacity: .88;
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+
+.nav a:hover{
+  opacity: 1;
+  background: rgba(255,255,255,.45);
+}
+
+/* Instagram icon */
+.ig{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 29, 29, .18);
+}
+
+.ig svg{
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  opacity: .9;
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(30,29,29,.18);
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+  letter-spacing: .2px;
+  box-shadow: 0 10px 26px rgba(30,29,29,.14);
+}
+
+.btn:hover{ transform: translateY(-1px); }
+.btn:active{ transform: translateY(0px); }
+
+.btn-sm{ padding: 9px 14px; font-size: 14px; }
+
+.btn-ghost{
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid rgba(30,29,29,.22);
+  box-shadow: none;
+}
+
+.btn-lg{
+  padding: 14px 20px;
+}
+
+/* ------------------------------
+   Hero
+------------------------------ */
+.hero{
+  position: relative;
+  background: var(--paper);
+}
+
+
+.hero-copy{
+  max-width: 560px;
+}
+
+.eyebrow{
+  font-family: "Clover", system-ui, sans-serif;
+  color: var(--olive);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.hero-title{
+  font-family: "Clover", serif;
+  font-size: clamp(36px, 4.6vw, 60px); /* smaller than before */
+  line-height: 1.15;
+  letter-spacing: 0.14em;             /* THIS is the big one */
+  margin: 0 0 18px;
+  color: #6a3f2a;                     /* slightly softer than pure brown */
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.hero-title-accent{
+  display:block;
+  font-family: "Clover", system-ui, sans-serif;
+  font-size: .62em;
+  letter-spacing: .6px;
+  color: var(--warm);
+  margin-top: 10px;
+}
+
+.hero-subtitle{
+  margin: 0 0 26px;
+  color: var(--brown);
+  opacity: .85;
+  max-width: 46ch;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero-cta{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+
+
+/* ------------------------------
+   Sections
+------------------------------ */
+.section{
+  padding: 72px 0;
+}
+
+.section-muted{
+  background: rgba(255,255,255,.35);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header{
+  margin-bottom: 26px;
+}
+
+.section-title{
+  font-family: "Hailey", system-ui, sans-serif;
+  font-size: 34px;
+  margin: 0 0 8px;
+}
+
+.section-intro{
+  margin: 0;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+/* Services */
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.service-card{
+  background: rgba(255,255,255,.6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: 0 10px 26px rgba(30,29,29,.08);
+}
+
+.service-card h3{
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+.service-card p{
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ------------------------------
+   Olive Services Section
+------------------------------ */
+
+.section-olive{
+  background: var(--olive);
+  padding: 40px 0 40px; /* tighter, closer to inspo */
+}
+
+.section-header.center{
+  text-align: center;
+}
+
+.section-title--light{
+  font-family: "Hailey", serif;
+  color: var(--paper);
+  font-size: 20px;            /* slightly smaller */
+  letter-spacing: 0.32em;     /* more elegance */
+  font-weight: 200;           /* force light */
+  opacity: .9;                /* softer */
+}
+
+/* Grid */
+.services-arches{
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* Individual item */
+.service-item{
+  text-align: center;
+}
+
+/* Arch shape */
+.arch-frame{
+  width: 100%;
+  aspect-ratio: 3 / 3.25; /* shorter arches */
+  border-radius: 999px 999px 28px 28px;
+  overflow: hidden;
+}
+
+
+.arch-frame img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Labels */
+.service-label{
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--paper);
+  opacity: .9;
+}
+
+
+@media (max-width: 900px){
+  .services-arches{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 520px){
+  .services-arches{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .arch-frame{
+    aspect-ratio: 1 / 1.2; /* more square, less tall */
+    border-radius: 999px 999px 22px 22px;
+  }
+
+  .service-label{
+    margin-top: 10px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+}
+
+
+/* ------------------------------
+   About Us Section
+------------------------------ */
+
+.about{
+  text-align: center;
+  max-width: 720px;
+}
+
+.about-title{
+  font-family: "Hailey", serif;
+  font-size: 26px;
+  letter-spacing: 0.28em;
+  font-weight: 300;   /* 👈 lighter than before */
+  margin-bottom: 18px;
+  color: var(--brown);
+}
+
+.about-text{
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--brown);
+  opacity: .9;
+}
+
+/* Instagram section */
+.instagram {
+  background: #fff;
+}
+
+.instagram-inner {
+  text-align: center;
+}
+
+.instagram-title{
+  font-family: "Hailey", serif;
+  font-size: 18px;
+  letter-spacing: 0.32em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 32px;
+}
+
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 760px;
+  margin: 0 auto 18px;
+}
+
+.instagram-grid img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.instagram-caption {
+  margin: 0 auto 18px;
+  max-width: 640px;
+  color: var(--brown);
+}
+
+.instagram-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--olive);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.instagram-button .ig-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .instagram-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 520px;
+  }
+  .instagram-grid img {
+    height: 170px;
+  }
+}
+
+.instagram-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* NEW: force the icon wrapper to be a centered flex box */
+.instagram-button .ig-icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0; /* kills baseline weirdness */
+}
+
+/* NEW: make svg behave like a block so it doesn't sit on baseline */
+.instagram-button .ig-icon svg{
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ------------------------------
+   Footer Hero (FIXED)
+------------------------------ */
+
+.footer-hero{
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+/* background image */
+.footer-hero-bg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* 🎯 matches inspo crop */
+  object-position: left center;
+  transform: scale(1.05);
+
+  z-index: 0;
+}
+
+.footer-hero-inner{
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  min-height: 420px;
+
+  display: flex;
+  align-items: right;
+  justify-content: right;
+
+  padding: clamp(64px, 8vw, 120px) 24px;
+}
+
+
+/* ------------------------------
+   Footer Text SVG
+------------------------------ */
+
+.footer-svg{
+  display: flex;
+  align-items: center;
+  min-height: 420px;
+}
+
+.footer-svg img{
+  width: min(560px, 88vw);
+  height: auto;
+  display: block;
+}
+
+
+/* responsive */
+@media (max-width: 900px){
+  .footer-grid{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-headline{
+    margin-bottom: 32px;
+  }
+}
+
+/* ------------------------------
+   Service Menu (SVG)
+------------------------------ */
+
+.service-menu{
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+}
+
+.service-menu-inner{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.service-menu img{
+  width: 100%;
+  height: auto;
+  display: block;
+
+  /* subtle luxury polish */
+  filter: drop-shadow(0 14px 28px rgba(30,29,29,.10));
+}
+
+/* ------------------------------
+   MOBILE SNAP (simple + fast)
+------------------------------ */
+@media (max-width: 700px){
+
+  /* header height + spacing */
+  body{
+    padding-top: 72px; /* prevents fixed nav covering content */
+  }
+
+/* logo: keep readable on mobile */
+.brand{
+  min-width: 0;         /* overrides the 220px min-width */
+  flex: 0 0 auto;
+}
+
+.brand-mark{
+  width: clamp(96px, 28vw, 140px);
+  height: auto;
+}
+
+  /* nav: keep it visible, just compress + wrap */
+  .nav{
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .nav a{
+    font-size: 12px;
+    letter-spacing: .08em;
+    padding: 6px 8px;
+  }
+
+  .ig{
+    padding: 6px 8px;
+  }
+
+  /* section spacing */
+  .section{
+    padding: 56px 0;
+  }
+
+
+  .hero-title{
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .hero-card img{
+    height: 300px;
+  }
+
+  /* services/cards: single column */
+  .grid{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* instagram: 2 columns + taller images */
+  .instagram-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .instagram-grid img{
+    height: 170px;
+  }
+
+  /* service menu svg: edge-to-edge (no side scroll) */
+  .service-menu img{
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    transform: none;
+  }
+
+  /* footer svg: smaller + centered */
+  .footer-svg img{
+    width: min(420px, 88vw);
+  }
+
+  .footer-hero-inner{
+    min-height: 360px;
+    padding: 54px 16px;
+  }
+}
+
+#menu{
+  scroll-margin-top: 96px;
+}
+
+.nav{
+  gap: 16px;
+}
